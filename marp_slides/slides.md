@@ -40,7 +40,8 @@ $~~~~~~~$ Feb 2023
 
 - This slide deck is written in [Marp](https://marp.app/)
 - Slides are available as presentation-ready HTML and PDF
-- The master branch contains devcontainer required to build slides. Other branches contain various devcontainer examples. This structure is not optimal, but allows to switch between devcontainers with a minimum effort
+- A sample Marp deck explaining the syntax and features is available [here](https://github.com/ankudinov/yet-another-marp-deck)
+- The root of this repository contains devcontainer required to build slides. Other examples are located in subdirectories and can be started by executing corresponding Makefile shortcuts
 
 <!-- Add footer starting from this slide -->
 <!--
