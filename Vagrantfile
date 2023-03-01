@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
       v.cpus = 4
     end
 
-    config.vm.synced_folder "temp/", "/home/vagrant/temp"
+    config.vm.synced_folder "gitignored_files/", "/home/vagrant/gitignored_files"
     config.vm.synced_folder ".", "/home/vagrant/vscode"
     # run provisioning script
     config.vm.provision "shell", path: "provision_vm.sh"
