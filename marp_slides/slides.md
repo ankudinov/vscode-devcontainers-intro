@@ -95,7 +95,7 @@ A picture worth a thousand words. [Source](https://code.visualstudio.com/docs/de
 
 <style scoped>section {font-size: 26px;}</style>
 
-- VSCode
+- [VSCode](https://code.visualstudio.com/download)
 - Some kind of Docker
   - MacOS ➡️ Docker Desktop
   - Windows ➡️ WSL2 ➕ Docker Desktop
@@ -108,12 +108,32 @@ A picture worth a thousand words. [Source](https://code.visualstudio.com/docs/de
 
 ---
 
-# Prerequisites
+# Vagrant VM
 
-- [Install VSCode](https://code.visualstudio.com/download)
-- Get Ubuntu VM with Docker CE installed
-  - The VM is only required to provide consistent demos and avoid OS specific challenges. Devcontainers can perfectly work on your laptop directly
-  - You can use provided `Vagrantfile` to create VM
-    - This requires Vagrant and Virtualbox
-    - (Optional) Install `sshpass` to simplify interaction with the lab. On MacOS that can be done using [MacPorts](https://www.macports.org/install.php): `sudo port install sshpass`
-- Clone this repository
+<style scoped>section {font-size: 24px;}</style>
+
+- You can run all the demos locally on your machine if VSCode and Docker are working correctly. Nothing else is required, just open the corresponding demo directory
+- The Vagrant VM is provided:
+  - To provide consistent demo environment without OS specific challenges
+  - To simplify interaction with the lab by relying on make shortcuts to open each demo
+- The Vagrant VM requires following to work:
+  - [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+  - [Vagrant](https://developer.hashicorp.com/vagrant/tutorials/getting-started/getting-started-install)
+- (Optional) Install `sshpass` to simplify interaction with the lab. On MacOS that can be done using [MacPorts](https://www.macports.org/install.php): `sudo port install sshpass`
+
+> Installing all these requirements can be harder than working with devcontainers directly. Feel free to ask questions about optimal setup for your case during or after the session.
+
+---
+
+# First Steps
+
+```bash
+# Clone the repository
+git clone https://github.com/ankudinov/vscode-devcontainers-intro.git
+# Start Vagrant VM
+vagrant up
+# Initiate VSCode Remote SSH session to the VM
+make remote
+# You can destroy the lab any time using the following command:
+vagrant destroy
+```
