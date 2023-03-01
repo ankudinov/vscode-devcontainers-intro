@@ -50,6 +50,19 @@ footer: '$~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ---
 
+# Session Targets
+
+- This session is not a deep dive into containers or VSCode
+- The purpose is to provide minimum inspiration and motivation for network engineers to try devcontainers. WARNING: addiction guaranteed! 🍰
+- Following topics will be covered:
+  - devcontainer basics
+  - building your own "hand-made" devcontainer
+  - add Ansible AVD and Containerlab to you devcontainer
+  - do some customization
+  - create a backdoor from your devcontainer for a POC
+
+---
+
 # Why Devcontainers?
 
 <style scoped>section {font-size: 26px;}</style>
