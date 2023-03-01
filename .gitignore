@@ -75,4 +75,5 @@ Temporary Items
 
 # ignore anything in temp and .vagrant
 /temp
+/gitignored_files
 .vagrant
