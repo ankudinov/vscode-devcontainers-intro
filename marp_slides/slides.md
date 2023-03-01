@@ -163,7 +163,7 @@ vagrant destroy
 
 - Start remote SSH session: `make demo01`
 - Check that you see hello_world Golang and Python files: `(image 1)`
-- Open VSCode command pallet:`Shift + Command + P` [on MacOS](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) `(image2)`
+- Open VSCode command pallette:`Shift + Command + P` [on MacOS](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) `(image2)`
 - Pick Go container (or Python as an alternative)
 
 ![demo01-files](media/demo01-files.png)   ![create dev container](media/create_dev_container.png)
@@ -191,7 +191,31 @@ sudo ls -la /var/lib/docker/volumes/<devcontainer-name>/_data
 
 # Why Isolated Container Can be Useful
 
+<style scoped>section {font-size: 26px;}</style>
+
 - To build a closed environment that is not interacting with your file system directly and will not break any existing repositories
 - Examples:
-  - Temporary playground
+  - Playground
   - PR review
+- A special case is devcontainer sample. Start it from the command pallette and pick Python to get full Python repository:
+
+![start devcontainer sample](media/devcontainer-sample.png)
+
+> Bonus: start the Flask app and if it's functional with curl.
+
+---
+
+# Open a Folder in Devcontainer
+
+- Start remote SSH session: `make demo01` (close the previous window first)
+- Pick `Open Folder in Container` from the command pallette
+- Select `demo01` folder
+- VSCode will ask to select devcontainer configuration files. Pick Python3, Python version 3.9
+- Pick following features: Go, cURL, Docker-in-Docker, youtube-dl :slightly_smiling_face:
+- Keep feature defaults
+- Inspect `devcontainer.json`, run `python hello_world.py` and `go build hello_world.go`
+
+---
+
+# What is Devcontainer Feature
+
