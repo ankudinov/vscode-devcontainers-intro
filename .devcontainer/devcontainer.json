@@ -39,7 +39,8 @@
                 "tuxtina.json2yaml",
                 "vscode-icons-team.vscode-icons",
                 "tomoki1207.pdf",
-                "mutantdino.resourcemonitor"
+                "mutantdino.resourcemonitor",
+				"oderwat.indent-rainbow"
             ]
         }
     }

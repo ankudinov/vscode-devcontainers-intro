@@ -78,6 +78,7 @@ footer: '$~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   - Create an [entrypoint](https://docs.docker.com/engine/reference/builder/#entrypoint). I'm certain everyone has a perfect understanding of this concept. :slightly_smiling_face: Here is a relatively simple [example](https://github.com/arista-netdevops-community/avd-all-in-one-container/blob/master/entrypoint.sh)
   - Take care of transferring your Git credentials, keys, etc. into the container if it was created as interactive
   - Think about security and something else that you'll certainly forget or never have time to start
+  - ... and it has to be multi-platform
 - Devcontainers are taking care of most of the points mentioned above out of the box 👍 📦
 
 ---
