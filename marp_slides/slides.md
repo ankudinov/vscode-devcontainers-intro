@@ -41,23 +41,12 @@ $~~~~~~~$ Feb 2023
 - This slide deck is written in [Marp](https://marp.app/)
 - Slides are available as presentation-ready HTML and PDF
 - A sample Marp deck explaining the syntax and features is available [here](https://github.com/ankudinov/yet-another-marp-deck)
-- The root of this repository contains devcontainer required to build slides. Other examples are located in subdirectories and can be started by executing corresponding Makefile shortcuts
+- The root of this repository contains devcontainer required to build slides. Other examples are located in subdirectories and can be started by executing corresponding Makefile shortcut
 
 <!-- Add footer starting from this slide -->
 <!--
 footer: '$~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$![h:30](https://www.arista.com/assets/images/logo/Arista_Logo.png)'
 -->
----
-
-# Prerequisites
-
-- [Install VSCode](https://code.visualstudio.com/download)
-- Get Ubuntu VM with Docker CE installed
-  - The VM is only required to provide consistent demos and avoid OS specific challenges. Devcontainers can perfectly work on your laptop directly
-  - You can use provided `Vagrantfile` to create VM
-    - This requires Vagrant and Virtualbox
-    - (Optional) Install `sshpass` to simplify interaction with the lab. On MacOS that can be done using [MacPorts](https://www.macports.org/install.php): `sudo port install sshpass`
-- Clone this repository
 
 ---
 
@@ -75,6 +64,21 @@ footer: '$~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   - very portable
 
 ![bg fit opacity:.3](excalidraw/why_devcontainers.png)
+
+---
+
+# Is It Hard to Build a Good Container?
+
+<style scoped>section {font-size: 22px;}</style>
+
+- To build a reasonable container the following steps are usually required:
+  - Craft a base Docker file with some essentials
+  - Add non-root user, as root can break permissions in certain scenarios
+  - The non-root user ID may not match user ID outside of the container. On some operating systems (for ex. RHEL and the family) that can be a serious problem. Find a way to map UID inside the container to the original UID. [Not a trivial task](https://github.com/arista-netdevops-community/avd-quickstart-containerlab/blob/master/.devcontainer/updateUID.Dockerfile)
+  - Create an [entrypoint](https://docs.docker.com/engine/reference/builder/#entrypoint). I'm certain everyone has a perfect understanding of this concept. :slightly_smiling_face: Here is a relatively simple [example](https://github.com/arista-netdevops-community/avd-all-in-one-container/blob/master/entrypoint.sh)
+  - Take care of transferring your Git credentials, keys, etc. into the container if it was created as interactive
+  - Think about security and something else that you'll certainly forget or never have time to start
+- Devcontainers are taking care of most of the points mentioned above out of the box 👍 📦
 
 ---
 
@@ -100,3 +104,15 @@ A picture worth a thousand words. [Source](https://code.visualstudio.com/docs/de
   - Remote SSH
   - Dev Containers
   - WSL
+
+---
+
+# Prerequisites
+
+- [Install VSCode](https://code.visualstudio.com/download)
+- Get Ubuntu VM with Docker CE installed
+  - The VM is only required to provide consistent demos and avoid OS specific challenges. Devcontainers can perfectly work on your laptop directly
+  - You can use provided `Vagrantfile` to create VM
+    - This requires Vagrant and Virtualbox
+    - (Optional) Install `sshpass` to simplify interaction with the lab. On MacOS that can be done using [MacPorts](https://www.macports.org/install.php): `sudo port install sshpass`
+- Clone this repository
