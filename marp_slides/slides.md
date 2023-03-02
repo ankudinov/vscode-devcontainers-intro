@@ -293,6 +293,8 @@ sudo ls -la /var/lib/docker/volumes/<devcontainer-name>/_data
 
 # Build Container with Ansible AVD
 
+<style scoped>section {font-size: 20px;}</style>
+
 - To start the container execute `make demo03`
 - The Dockerfile with following lines to add Ansible AVD collection
 
@@ -308,6 +310,14 @@ RUN pip3 install "ansible-core>=2.13.1,<2.14.0" \
 ```
 
 - Build configs for a simple EVPN Fabric using Ansible AVD
+- There is one single path in `ansible.cfg` to everything and things never break!
+
+```cfg
+inventory = inventory.yml
+filter_plugins = /home/vscode/ansible-avd/plugins/filters
+collections_paths = /home/vscode/.ansible/collections/ansible_collections
+interpreter_python = /bin/python3
+```
 
 ---
 
