@@ -336,3 +336,35 @@ interpreter_python = /bin/python3
   // ${containerWorkspaceFolder} - The path that the workspaces files can be found in the container
 }
 ```
+
+---
+
+# Add cLab to Devcontainer to Create More Containers
+
+<style scoped>section {font-size: 20px;}</style>
+
+- Execute `make demo04`
+- To add cLab to devcontainer following steps are required:
+  - install cLab. That can be done by modifying Dockerfile
+
+    ```dockerfile
+    RUN bash -c "$(curl -sL https://get.containerlab.dev)" -- -v 0.37.1
+    ```
+
+  - Add Docker-outside-Docker feature
+
+    ```json
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+      }
+    ```
+
+  - Add following runArgs required for cLab to work correctly over Docker-outside-Docker
+
+    ```json
+    "runArgs": [
+      "--network=host", // use the Docker host network stack
+      "--pid=host", // use the host's PID namespace inside the container, for cLab to see all processes on the system
+      "--privileged" // gives extended privileges and all capabilities to the container
+    ]
+    ```
