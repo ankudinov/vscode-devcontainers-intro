@@ -1,0 +1,22 @@
+{
+    "name": "demo04-devcontainer",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "oderwat.indent-rainbow"
+            ]
+        }
+    },
+    "runArgs": [
+        // this name will be visible in docker container ls on the host
+        "--name=demo04-devcontainer"
+    ],
+	"workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind",
+	"workspaceFolder": "${localWorkspaceFolder}",
+    "features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	}
+}
