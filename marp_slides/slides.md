@@ -238,3 +238,26 @@ sudo ls -la /var/lib/docker/volumes/<devcontainer-name>/_data
 ```
 
 > Free idea: create Ansible AVD devcontainer feature.
+
+---
+
+# devcontainer.json
+
+<style scoped>section {font-size: 24px;}</style>
+
+- `devcontainer.json` contains the specification for your devcontainer
+- if `.devcontainer/devcontainer.json` is present in the directory, the VSCode will suggest to open the folder in the devcontainer automatically
+- You can still use following commands when required:
+  - Dev Containers: Open Folder in Container
+  - Dev Containers: Rebuild Container
+  - Dev Containers: Rebuild Container Without Cache
+- A very short devcontainer specification can look like:
+
+```json
+{
+  "name": "Python 3",
+  // it is possible to use `build` instead of image and provide Dockerfile
+  // pre-build image provides consistent results, but Dockerfile is easy to adjust for specific environment
+  "image": "mcr.microsoft.com/devcontainers/python:0-3.9"
+}
+```
