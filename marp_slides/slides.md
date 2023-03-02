@@ -345,7 +345,7 @@ interpreter_python = /bin/python3
 
 - Execute `make demo04`
 - To add cLab to devcontainer following steps are required:
-  - install cLab. That can be done by modifying Dockerfile
+  - install [cLab](https://containerlab.dev/). That can be done by modifying Dockerfile
 
     ```dockerfile
     RUN bash -c "$(curl -sL https://get.containerlab.dev)" -- -v 0.37.1
@@ -368,3 +368,24 @@ interpreter_python = /bin/python3
       "--privileged" // gives extended privileges and all capabilities to the container
     ]
     ```
+
+---
+
+# Few Final Steps
+
+<style scoped>section {font-size: 24px;}</style>
+
+- Add aliases to Dockerfile
+- Install [cmdo tool](https://github.com/hellt/cmdo)
+- The notable difference here is that `cmdo` will be installed with `postCreateCommand`
+
+  ```json
+  "postCreateCommand": "bash -c \"$(curl -sL https://raw.githubusercontent.com/hellt/cmdo/master/get.sh)\""
+  ```
+
+- Commands or scripts can be executed at different [devcontainer lifecycle stages](https://containers.dev/implementors/json_reference/#lifecycle-scripts). My favorite options are:
+  - onCreateCommand - executed immediately when container has started for the first time
+  - postCreateCommand - executed once container was assigned to a user for the first time
+  - postAttachCommand - executed every time when a tool is successfully attached to the container
+
+- Execute `make demo05` to start the demo
