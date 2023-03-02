@@ -1,0 +1,17 @@
+{
+    "name": "demo02-devcontainer",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "oderwat.indent-rainbow"
+            ]
+        }
+    },
+    "runArgs": [
+        // this name will be visible in docker container ls on the host
+        "--name=demo02-devcontainer"
+    ]
+}

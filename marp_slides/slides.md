@@ -261,3 +261,26 @@ sudo ls -la /var/lib/docker/volumes/<devcontainer-name>/_data
   "image": "mcr.microsoft.com/devcontainers/python:0-3.9"
 }
 ```
+
+---
+
+# Crafting Your Own Devcontainer
+
+<style scoped>section {font-size: 20px;}</style>
+
+- Let's create our own devcontainer
+- Execute `make demo02` to run it
+- Targets:
+  - Devcontainer will start automatically
+  - The container will be created from Dockerfile to add some packages: sshpass, curl, iptools-ping
+  - `indent-rainbow` extension will be automatically installed to provide ident highlights
+  - Docker container name will be changed from random to `demo02-devcontainer`
+- Used devcontainer.json keys:
+
+```json
+{
+  "build": { "dockerfile": "Dockerfile" }, // build the container from Dockerfile
+  "customizations": { "vscode": { "extensions": [ "ext1", "ext2", ... ] } },  // install VSCode extensions in devcontainer
+  "runArgs": [ "docker-flag", ... ]  // any Docker flags that are not covered by devcontainer.json spec explicitly
+}
+```
