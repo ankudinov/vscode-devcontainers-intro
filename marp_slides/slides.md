@@ -146,15 +146,19 @@ A picture worth a thousand words. [Source](https://code.visualstudio.com/docs/de
 
 ```bash
 # Clone the repository
-git clone https://github.com/ankudinov/vscode-devcontainers-intro.git
+> git clone https://github.com/ankudinov/vscode-devcontainers-intro.git
 # change your working directory
-cd vscode-devcontainers-intro
+> cd vscode-devcontainers-intro
+# download cEOS-lab from arista.com and place it into gitignored_files directory
+# the vagrant provisioning will fail if file not found, review and adjust cEOS image name
+> ls gitignored_files
+cEOS-lab-4.29.2F.tar
 # Start Vagrant VM
-vagrant up
+> vagrant up
 # Initiate VSCode Remote SSH session to the VM
-make remote
+> make remote
 # You can destroy the lab any time using the following command:
-vagrant destroy
+> vagrant destroy
 ```
 
 ---
