@@ -1,5 +1,5 @@
 {
-    "name": "demo02-devcontainer",
+    "name": "demo03-devcontainer",
     "build": {
         "dockerfile": "Dockerfile"
     },
@@ -12,6 +12,6 @@
     },
     "runArgs": [
         // this name will be visible in docker container ls on the host
-        "--name=demo02-devcontainer"
+        "--name=demo03-devcontainer"
     ]
 }

@@ -10,9 +10,11 @@ RUN apt-get update \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
     && apt-get clean
 
+# switch user to vscode otherwise Ansible will be installed as root
+USER vscode
+ENV PATH=$PATH:/home/vscode/.local/bin
 # install Ansible AVD collection
 ENV _AVD_VERSION="3.8.1"
 RUN pip3 install "ansible-core>=2.13.1,<2.14.0" \
     && ansible-galaxy collection install arista.avd:==${_AVD_VERSION} \
-    && ansible-galaxy collection install community.general \
     && pip3 install -r /home/vscode/.ansible/collections/ansible_collections/arista/avd/requirements.txt
