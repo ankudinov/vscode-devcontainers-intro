@@ -15,3 +15,7 @@ stop: ## Destroy ceos lab
 .PHONY: deploy
 deploy: ## Deploy AVD configs
 	cd $(CURRENT_DIR)/avd_inventory; ansible-playbook playbooks/deploy.yml
+
+.PHONY: cmdo
+cmdo: ## execute commands with cmdo
+	./cmdo -i cmdo_inventory.yml -t

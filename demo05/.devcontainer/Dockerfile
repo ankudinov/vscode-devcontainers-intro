@@ -21,3 +21,8 @@ RUN pip3 install "ansible-core>=2.13.1,<2.14.0" \
 
 # install the latest containerlab
 RUN bash -c "$(curl -sL https://get.containerlab.dev)" -- -v 0.37.1
+
+# add aliases
+COPY add_aliases.zshrc /home/vscode/add_aliases.zshrc
+RUN cat /home/vscode/add_aliases.zshrc >> /home/vscode/.zshrc \
+    && cat /home/vscode/add_aliases.zshrc >> /home/vscode/.bashrc
