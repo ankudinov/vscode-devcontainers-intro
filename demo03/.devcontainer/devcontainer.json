@@ -13,5 +13,7 @@
     "runArgs": [
         // this name will be visible in docker container ls on the host
         "--name=demo03-devcontainer"
-    ]
+    ],
+	"workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind",
+	"workspaceFolder": "${localWorkspaceFolder}"
 }

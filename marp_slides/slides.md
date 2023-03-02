@@ -243,7 +243,7 @@ sudo ls -la /var/lib/docker/volumes/<devcontainer-name>/_data
 
 # devcontainer.json
 
-<style scoped>section {font-size: 24px;}</style>
+<style scoped>section {font-size: 20px;}</style>
 
 - `devcontainer.json` contains the specification for your devcontainer
 - if `.devcontainer/devcontainer.json` is present in the directory, the VSCode will suggest to open the folder in the devcontainer automatically
@@ -262,6 +262,8 @@ sudo ls -la /var/lib/docker/volumes/<devcontainer-name>/_data
 }
 ```
 
+> Check full devcontainer.json [reference here](https://containers.dev/implementors/json_reference/).
+
 ---
 
 # Crafting Your Own Devcontainer
@@ -272,7 +274,7 @@ sudo ls -la /var/lib/docker/volumes/<devcontainer-name>/_data
 - Execute `make demo02` to run it
 - Targets:
   - Devcontainer will start automatically
-  - The container will be created from Dockerfile to add some packages: sshpass, curl, iptools-ping
+  - The container will be created from Dockerfile to add some packages: sshpass, curl, iptools-ping. You can use devcontainer apt features to install packages, but modifying Docker file can be more convenient
   - `indent-rainbow` extension will be automatically installed to provide ident highlights
   - Docker container name will be changed from random to `demo02-devcontainer`
 - Used devcontainer.json keys:
@@ -293,4 +295,34 @@ sudo ls -la /var/lib/docker/volumes/<devcontainer-name>/_data
 
 - To start the container execute `make demo03`
 - The Dockerfile with following lines to add Ansible AVD collection
+
+```dockerfile
+# switch user to vscode otherwise Ansible will be installed as root
+USER vscode
+ENV PATH=$PATH:/home/vscode/.local/bin
+# install Ansible AVD collection
+ENV _AVD_VERSION="3.8.1"
+RUN pip3 install "ansible-core>=2.13.1,<2.14.0" \
+    && ansible-galaxy collection install arista.avd:==${_AVD_VERSION} \
+    && pip3 install -r /home/vscode/.ansible/collections/ansible_collections/arista/avd/requirements.txt
+```
+
 - Build configs for a simple EVPN Fabric using Ansible AVD
+
+---
+
+# Set Real Path as the Workspace Folder
+
+- If you are working with existing repository on your system, seeing faked `workspace/<something>` path can be inconvenient
+- The demo03 devcontainer is using real system path that exists on the host instead:
+
+```json
+{
+  "workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind",
+  "workspaceFolder": "${localWorkspaceFolder}"
+  // workspaceMount - Overrides the default local mount point for the workspace when the container is created
+  // workspaceFolder - Sets the default path to open when connecting to the container
+  // ${localWorkspaceFolder} - Path of the local folder, that contains .devcontainer/devcontainer.json
+  // ${containerWorkspaceFolder} - The path that the workspaces files can be found in the container
+}
+```
