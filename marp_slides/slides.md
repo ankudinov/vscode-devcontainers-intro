@@ -284,3 +284,13 @@ sudo ls -la /var/lib/docker/volumes/<devcontainer-name>/_data
   "runArgs": [ "docker-flag", ... ]  // any Docker flags that are not covered by devcontainer.json spec explicitly
 }
 ```
+
+> NOTE: by default `demo02` directory will be mounted to your workspace in `/workspaces/vscode/demo02` by VSCode.
+
+---
+
+# Build Container with Ansible AVD
+
+- To start the container execute `make demo03`
+- The Dockerfile with following lines to add Ansible AVD collection
+- Build configs for a simple EVPN Fabric using Ansible AVD

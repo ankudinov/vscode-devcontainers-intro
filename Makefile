@@ -15,3 +15,7 @@ demo01: ## Open demo01 repository on the Vargant VM
 .PHONY: demo02
 demo02: ## Open demo02 repository on the Vargant VM
 	sshpass -p vagrant ssh-copy-id vagrant@192.168.56.56; code --remote ssh-remote+vagrant@192.168.56.56 /home/vagrant/vscode/demo02
+
+.PHONY: demo03
+demo03: ## Open demo02 repository on the Vargant VM
+	sshpass -p vagrant ssh-copy-id vagrant@192.168.56.56; code --remote ssh-remote+vagrant@192.168.56.56 /home/vagrant/vscode/demo03
