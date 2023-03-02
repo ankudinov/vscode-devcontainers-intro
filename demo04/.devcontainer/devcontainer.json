@@ -12,11 +12,15 @@
     },
     "runArgs": [
         // this name will be visible in docker container ls on the host
-        "--name=demo04-devcontainer"
+        "--name=demo04-devcontainer",
+        // add flags required to run cLab on docker-outside-of-docker
+        "--network=host",
+		"--pid=host",
+		"--privileged"
     ],
 	"workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind",
 	"workspaceFolder": "${localWorkspaceFolder}",
     "features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
 	}
 }
