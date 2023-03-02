@@ -223,3 +223,18 @@ sudo ls -la /var/lib/docker/volumes/<devcontainer-name>/_data
 
 # What is Devcontainer Feature
 
+<style scoped>section {font-size: 24px;}</style>
+
+> Development container "Features" are self-contained, shareable units of installation code and dev container configuration. The name comes from the idea that referencing one of them allows you to quickly and easily add more tooling, runtime, or library "Features" into your development container for use by you or your collaborators.
+
+- Short version: it's a script with a description doing some extra configuration when devcontainer is created
+- You can create [your own features](https://github.com/devcontainers/feature-starter) using following structure:
+
+```text
++-- feature
+|    +-- devcontainer-feature.json
+|    +-- install.sh
+|    +-- (other files)
+```
+
+> Free idea: create Ansible AVD devcontainer feature.
