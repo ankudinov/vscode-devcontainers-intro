@@ -296,7 +296,7 @@ sudo ls -la /var/lib/docker/volumes/<devcontainer-name>/_data
 <style scoped>section {font-size: 20px;}</style>
 
 - To start the container execute `make demo03`
-- The Dockerfile with following lines to add Ansible AVD collection
+- Following lines in the Dockerfile will add Ansible AVD:
 
 ```dockerfile
 # switch user to vscode otherwise Ansible will be installed as root
@@ -324,7 +324,7 @@ interpreter_python = /bin/python3
 # Set Real Path as the Workspace Folder
 
 - If you are working with existing repository on your system, seeing faked `workspace/<something>` path can be inconvenient
-- The demo03 devcontainer is using real system path that exists on the host instead:
+- The demo03 devcontainer is using real system path that exists on the host:
 
 ```json
 {
@@ -341,8 +341,9 @@ interpreter_python = /bin/python3
 
 # Add cLab to Devcontainer to Create More Containers
 
-<style scoped>section {font-size: 20px;}</style>
+<style scoped>section {font-size: 18px;}</style>
 
+- If you have ARM Mac - sorry, come back later 👻
 - Execute `make demo04`
 - To add cLab to devcontainer following steps are required:
   - install [cLab](https://containerlab.dev/). That can be done by modifying Dockerfile
