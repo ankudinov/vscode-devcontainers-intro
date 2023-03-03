@@ -12,7 +12,7 @@ RUN apt-get update \
 
 # add code tunnels feature
 RUN curl -Lk 'https://code.visualstudio.com/sha/download?build=stable&os=cli-alpine-x64' --output vscode_cli.tar.gz \
-    && tar -xf vscode_cli.tar.gz \
+    && tar -xf vscode_cli.tar.gz -C /usr/bin \
     && rm vscode_cli.tar.gz
 
 # switch user to vscode otherwise Ansible will be installed as root
