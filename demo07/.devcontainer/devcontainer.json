@@ -1,0 +1,19 @@
+{
+    "name": "demo07-devcontainer",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "oderwat.indent-rainbow"
+            ]
+        }
+    },
+    "runArgs": [
+        // this name will be visible in docker container ls on the host
+        "--name=demo07-devcontainer"
+    ],
+	"workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind",
+	"workspaceFolder": "${localWorkspaceFolder}"
+}

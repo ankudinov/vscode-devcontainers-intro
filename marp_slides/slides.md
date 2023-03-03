@@ -32,7 +32,7 @@ _paginate: false
 
 Petr Ankudinov
 $~~~~~~~$ EMEA AS
-$~~~~~~~$ Feb 2023
+$~~~~~~~$ Last update: Mar 2023
 
 ---
 
@@ -400,3 +400,27 @@ interpreter_python = /bin/python3
 - The feature can be easily integrated into a container by modifying Dockerfile and can be used by running `code tunnel` command
 - Test that by starting next demo with `make demo06`
 - That can be very useful as a simple VPN replacement for a POC and many other scenarios
+
+---
+
+# Use Devcontainer to Review AVD PR
+
+<style scoped>section {font-size: 24px;}</style>
+
+- It's quite common to thing that it's hard to use containers with AVD dev branch or a fork
+- There are 3 simple ways to solve that:
+  - Mount your local clones to Ansible collections directory inside the container with `runArgs` or [mounts](https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount). That's the equivalent to the following construct in Docker:
+
+    ```text
+    -v /home/${USER}/temp_git_repos/ansible-avd/ansible_collections/arista/avd/:/home/vscode/.ansible/collections/ansible_collections/arista/avd
+    ```
+
+  - Open PR in devcontainer without mounting anything. Can be suitable for a quick test, where you inventory is not required
+    - An example for `Dev Containers: Clone GitHub Pull Request in Container Volume` coming soon
+  - Mount your inventory to the container workspace and point AVD install files in the container to the specific branch or fork. Execute `make demo07` to test that
+
+---
+
+# QUESTIONS ❓
+
+THE END
