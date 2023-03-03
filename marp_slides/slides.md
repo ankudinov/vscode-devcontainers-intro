@@ -205,7 +205,7 @@ sudo ls -la /var/lib/docker/volumes/<devcontainer-name>/_data
 
 ![start devcontainer sample](media/devcontainer-sample.png)
 
-> Bonus: start the Flask app and if it's functional with curl.
+> Bonus: start the Flask app and verify if it's functional with curl.
 
 ---
 
