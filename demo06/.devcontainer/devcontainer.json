@@ -1,5 +1,5 @@
 {
-    "name": "demo05-devcontainer",
+    "name": "demo06-devcontainer",
     "build": {
         "dockerfile": "Dockerfile"
     },
@@ -12,7 +12,7 @@
     },
     "runArgs": [
         // this name will be visible in docker container ls on the host
-        "--name=demo05-devcontainer",
+        "--name=demo06-devcontainer",
         // add flags required to run cLab on docker-outside-of-docker
         "--network=host",
 		"--pid=host",

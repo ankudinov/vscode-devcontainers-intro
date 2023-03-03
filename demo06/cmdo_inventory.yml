@@ -1,0 +1,42 @@
+credentials:
+  default:
+    username: cvpadmin
+    password: arista123
+
+transports:
+  default:
+    strict-key: false
+
+devices:
+
+  S01:
+    platform: arista_eos
+    address: 192.168.123.11
+    send-commands:
+    - show version
+    - show running-config
+    - show tech-support
+
+  S02:
+    platform: arista_eos
+    address: 192.168.123.12
+    send-commands:
+    - show version
+    - show running-config
+    - show tech-support
+
+  L01:
+    platform: arista_eos
+    address: 192.168.123.101
+    send-commands:
+    - show version
+    - show running-config
+    - show tech-support
+
+  L02:
+    platform: arista_eos
+    address: 192.168.123.102
+    send-commands:
+    - show version
+    - show running-config
+    - show tech-support

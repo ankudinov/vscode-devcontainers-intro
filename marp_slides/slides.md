@@ -389,3 +389,14 @@ interpreter_python = /bin/python3
   - postAttachCommand - executed every time when a tool is successfully attached to the container
 
 - Execute `make demo05` to start the demo
+
+---
+
+# Build your Trojan Horse to Conquer the POC
+
+> WARNING: The container proposed here can be used as a backdoor. Check if it's allowed by the security policy before deploying it anywhere. 🐴
+
+- The [VSCode Remote Tunnels](https://code.visualstudio.com/docs/remote/tunnels) feature allows full control over you VSCode container (thx to Michael Pergament for sharing)
+- The feature can be easily integrated into a container by modifying Dockerfile and can be used by running `code tunnel` command
+- Test that by starting next demo with `make demo06`
+- That can be very useful as a simple VPN replacement for a POC and many other scenarios
