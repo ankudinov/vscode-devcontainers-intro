@@ -10,6 +10,11 @@ RUN apt-get update \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
     && apt-get clean
 
+# add code tunnels feature
+RUN curl -Lk 'https://code.visualstudio.com/sha/download?build=stable&os=cli-alpine-x64' --output vscode_cli.tar.gz \
+    && tar -xf vscode_cli.tar.gz \
+    && rm vscode_cli.tar.gz
+
 # switch user to vscode otherwise Ansible will be installed as root
 USER vscode
 ENV PATH=$PATH:/home/vscode/.local/bin
@@ -26,8 +31,3 @@ RUN bash -c "$(curl -sL https://get.containerlab.dev)" -- -v 0.37.1
 COPY add_aliases.zshrc /home/vscode/add_aliases.zshrc
 RUN cat /home/vscode/add_aliases.zshrc >> /home/vscode/.zshrc \
     && cat /home/vscode/add_aliases.zshrc >> /home/vscode/.bashrc
-
-# add code tunnels feature
-RUN curl -Lk 'https://code.visualstudio.com/sha/download?build=stable&os=cli-alpine-x64' --output vscode_cli.tar.gz \
-    && tar -xf vscode_cli.tar.gz \
-    && rm vscode_cli.tar.gz
